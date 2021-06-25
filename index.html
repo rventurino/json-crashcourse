@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Crash Course</title>
+</head>
+<body>
+    <ul id="people">
+
+    </ul>
+    <ul id="peoplejson"></ul>
+    <script>
+        /*
+
+        HOW TO DO THIS EXACT THING BUT WITH JAVASCRIPT OBJECTS:
+
+        //js object
+        var person = {
+            name: "Ryan",
+            age: 27,
+            address:{
+                street:"819 Garlow Blvd.",
+                city:"Pittsburgh"
+            },
+            immediate_family:["Kelly", "Michael"]
+        }
+        
+        person = JSON.stringify(person);
+        person = JSON.parse(person)
+        console.log(person.name);
+        
+
+        var people = [
+            {
+                name: "Ryan",
+                age: 35
+            },
+            {
+                name: "Yimmy",
+                age: 10
+            },
+            {
+            name: "Sally",
+            age: 19
+            }
+        ]
+        //console.log("people[1].age = " + people[1].age)
+        var output = '';
+        people.forEach(element => {
+            output += `<li>${element.name}</li>`
+        });
+        document.getElementById('people').innerHTML = output;
+        */
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            // Typical action to be performed when the document is ready:
+            console.log(xhttp.responseText);
+            var response = JSON.parse(xhttp.responseText)
+            console.log(response.people)
+            console.log("loop for funzies:")
+            var people = response.people;
+            people.forEach(element => {
+                console.log(element)
+            });
+            let peopleOutput = "";
+            people.forEach(element => {
+                peopleOutput += `<li> ${element.name} </li>`
+            })
+            output = document.getElementById("peoplejson");
+            output.innerHTML = peopleOutput;
+            }
+        };
+
+        xhttp.open("GET", "people.json", true);
+        xhttp.send();
+    </script>
+    
+</body>
+</html>

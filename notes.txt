@@ -1,0 +1,42 @@
+https://www.youtube.com/watch?v=wI1CWzNtE-M
+
+WHAT IS JSON
+
+Javascript object notation
+lightweight data interchange format
+Based on a subset of JS
+Easy to read and write 
+Often used with AJAX
+Can be used with most modern languages
+
+DATATYPES
+
+Number: no difference between int and float, all number type
+String: yep
+Boolean
+Array [ ] 
+Objects: Unordered collections of key/value pairs
+Null: empty value
+
+SYNTAX RULES
+
+Uses key/value pairs - {"name":"Ryan"}
+Uses double quotes around KEY and value
+Must use the specified DATATYPES
+File type is ".json"
+MIME type is "Application/json"
+
+JSON Example
+
+{
+    "name":"Ryan Venturino",
+    "age":27,
+    "address":{
+        "street":"819 Garlow Blvd.",
+        "city":"Pittsburgh"
+    },
+    "immediate-family":["Kelly", "Michael"]
+}
+
+**** JSON Linter *****
+https://jsonlint.com/
